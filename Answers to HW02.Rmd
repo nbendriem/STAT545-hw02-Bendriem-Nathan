@@ -1,0 +1,43 @@
+---
+title: "Questions to HW2"
+author: "Nathan Bendriem"
+date: "September 24, 2017"
+output: html_document
+---
+
+Explore the Gapminder object:
+
+#Is it a data.frame, a matrix, a vector, a list?
+- It is a data frame table 
+-str(gapminder)
+#What's its class?
+- a table
+-class(gapminder)
+#How many variables/columns
+-6
+-ncol(gapminder)
+#how many rows/observations
+-1704
+-nrow(gapminder)
+#can you get these facts about extent or size in more than one way?
+-yes, you can also use the function dim(gapminder), and names(gapminder), length (gapminder) 
+#what data type is each variable
+- each variable is a tibble
+-str(gapminder)
+
+##Explore Individual Variables
+- I will choose the categorical value "year" and quantitative category "lifeExp""
+#What are the possible values of each variable?
+- Years range from 1952 to 2007
+-Life Expantancy ranges from 23.60 to 82.60 years
+-summary(gapminder)
+
+#What values are typical? Whats the spread, distribution,etc?
+-Year: minimum is 1952, median is 1980, maximum is 2007.  The histogram shows that there is no year that is more popular then the others.  The average is 1989
+-summary(gapminder$year)
+-hist(gapminder$year)
+-Life expectancy ranges from 23.60 to 82.60, with an average of 59.47 and a median of 60.71.  The histogram shows that the year class 70-75 is the most poplar
+-summary(gapminder$lifeExp)
+-hist(gapminder$lifeExp)
+
+##Explore Various Plot types
