@@ -6,6 +6,14 @@ output:
   html_document: 
     keep_md: yes
 ---
+
+```{r}
+library(gapminder)
+```
+```{r}
+library(tidyverse)
+```
+
 # Homework 2:
 
 Exploring the Gapminder dataset by using dplyr and ggplot2.  This page will contain the answers to the given questions as well as the codes and functions I used.
