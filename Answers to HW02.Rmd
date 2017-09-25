@@ -13,16 +13,16 @@ Exploring the Gapminder dataset by using dplyr and ggplot2.  This page will cont
 # Explore the Gapminder object:
 
 ## Is it a data.frame, a matrix, a vector, a list?
-It is a list, the function used was typeof(gapminder)
+It is a list, the function used was: typeof(gapminder)
 
 ## What's its class?
-A data frame table, the function used was class(gapminder)
+A data frame table, the function used was: class(gapminder)
 
 ## How many variables/columns
-6, the function used was ncol(gapminder)
+6, the function used was: ncol(gapminder)
 
 ## How many rows/observations
-1704, the function used was nrow(gapminder)
+1704, the function used was: nrow(gapminder)
 
 ## Can you get these facts about extent or size in more than one way?
 
@@ -40,23 +40,22 @@ Yes, you can also use the functions:
 - pop: integer
 - gdpPercap: number
 
-The code used was str(gapminder)
+The code used was: str(gapminder)
 
 ## Explore Individual Variables
 
 I will choose the categorical value Year and quantitative category Life Expectancy
 - Year has 12 integers (1952, 1957, 1962, 1967, 1977, 1987, 1992, 1997, 2002, 2007), and all occur 142 times
 
-The function used was table(gapminder$year)
+The function used was: table(gapminder$year)
 
-LifeExp has many more intergers, too much to count.  They can be seen using the function table(gapminder&lifeExp)
+LifeExp has many more intergers, too much to count.  They can be seen using the function: table(gapminder&lifeExp)
 
 # What are the possible values of each variable?
+
 - Years range from 1952 to 2007
 - Life Expantancy ranges from 23.60 to 82.60 years
-- summary(gapminder)
-- unique(gapminder$year)
-- unique(gapminder$lifeExp)
+The functions used are: summary(gapminder), unique(gapminder$year), unique(gapminder$lifeExp)
 
 ## What values are typical? Whats the spread, distribution,etc?
 
@@ -66,7 +65,7 @@ Year
 - maximum is 2007
 - average is 1989
 
-The histogram shows that there is no year that is more popular then the others.  Functions that indicated these are summary(gapminder$year) and hist(gapminder&year)
+The histogram shows that there is no year that is more popular then the others.  Functions that indicated these are: summary(gapminder$year) and hist(gapminder&year)
 
 Life expectancy
 - minimum is 23.60
@@ -74,7 +73,7 @@ Life expectancy
 - average is 59.47
 - median is 60.71
 
-The histogram shows that the year class 70-75 is the most popular.  The functions used are summary(gapminder$lifeExp) and hist(gapminder$lifeExp)
+The histogram shows that the year class 70-75 is the most popular.  The functions used are: summary(gapminder$lifeExp) and hist(gapminder$lifeExp)
 
 # Explore Various Plot types
 
