@@ -2,42 +2,87 @@
 title: "Questions to HW2"
 author: "Nathan Bendriem"
 date: "September 24, 2017"
-output: html_document
+output: 
+  html_document: 
+    keep_md: yes
 ---
+### Homework 2:
+Exploring the Gapminder dataset by using dplyr and ggplot2.  This page will contain the answers to the given questions as well as the codes and functions I used.
 
-Explore the Gapminder object:
+## Explore the Gapminder object:
 
-#Is it a data.frame, a matrix, a vector, a list?
-- It is a data frame table 
--str(gapminder)
-#What's its class?
-- a table
+# Is it a data.frame, a matrix, a vector, a list?
+- It is a list
+-typeof(gapminder)
+# What's its class?
+- a data frame table
 -class(gapminder)
-#How many variables/columns
+# How many variables/columns
 -6
 -ncol(gapminder)
-#how many rows/observations
+# how many rows/observations
 -1704
 -nrow(gapminder)
-#can you get these facts about extent or size in more than one way?
+# Can you get these facts about extent or size in more than one way?
 -yes, you can also use the function dim(gapminder), and names(gapminder), length (gapminder) 
 #what data type is each variable
 - each variable is a tibble
+- Country: factor
+- continent: factor
+- year: integer
+- lifeExp: number
+- pop: integer
+- gdpPercap: number
 -str(gapminder)
 
-##Explore Individual Variables
+## Explore Individual Variables
 - I will choose the categorical value "year" and quantitative category "lifeExp""
-#What are the possible values of each variable?
+- Year has 12 integers (1952, 1957, 1962, 1967, 1977, 1987, 1992, 1997, 2002, 2007), and all occur 142 times
+- table(gapminder$year)
+- LifeExp has many more intergers, 
+# What are the possible values of each variable?
 - Years range from 1952 to 2007
--Life Expantancy ranges from 23.60 to 82.60 years
--summary(gapminder)
+- Life Expantancy ranges from 23.60 to 82.60 years
+- summary(gapminder)
+- unique(gapminder$year)
+- unique(gapminder$lifeExp)
 
-#What values are typical? Whats the spread, distribution,etc?
--Year: minimum is 1952, median is 1980, maximum is 2007.  The histogram shows that there is no year that is more popular then the others.  The average is 1989
--summary(gapminder$year)
--hist(gapminder$year)
--Life expectancy ranges from 23.60 to 82.60, with an average of 59.47 and a median of 60.71.  The histogram shows that the year class 70-75 is the most poplar
--summary(gapminder$lifeExp)
--hist(gapminder$lifeExp)
+# What values are typical? Whats the spread, distribution,etc?
+- Year: minimum is 1952, median is 1980, maximum is 2007.  The histogram shows that there is no year that is more popular then the others.  The average is 1989
+- summary(gapminder$year)
+- hist(gapminder$year)
+- Life expectancy ranges from 23.60 to 82.60, with an average of 59.47 and a median of 60.71.  The histogram shows that the year class 70-75 is the most popular
+- summary(gapminder$lifeExp)
+- hist(gapminder$lifeExp)
 
 ##Explore Various Plot types
+I will explore some various plots using the two variables Year and LifeExp
+
+All of the graphs will be collated into a folder with the respective title of the graph.  I am having trouble having them remain within the md file.
+
+
+# Scatterplot
+```{r}
+ggplot(gapminder, aes(x=year, y=lifeExp)) + geom_point(size= 1, colour= "red") + ggtitle("Gapminder dataset- LifeExp vs Year")
+
+```
+
+# Histogram
+```{r}
+ggplot(gapminder, aes(gapminder$lifeExp)) + geom_histogram(colour = "black", fill = "red", alpha= 0.33) + labs(x= "Life Expectancy", y= "Frequency") + ggtitle("Histogram of Life Expectancy")
+```
+
+# Boxplot
+
+```{r}
+ggplot(gapminder, aes(x= country, y= lifeExp)) + geom_boxplot(colour = "red",) + labs(x= "", y= "Life Expectancy") + ggtitle("Boxplot of Life Expectancy vs. Year")
+```
+```{r}
+NorthAfrica <- filter(gapminder, country== "Algeria" | country=="Tunisia" | country=="Egypt" | country=="Morocco" | country=="Libya" | country=="Sudan")
+```
+ggplot(NorthAfrica, aes(x= country, y= lifeExp)) + geom_boxplot(colour = "black", fill = "red", alpha= 0.33) + labs(x= "Country", y= "Life Expectancy") + ggtitle("Boxplot of Life Expectancy for North African Countries")
+
+One more
+
+
+
