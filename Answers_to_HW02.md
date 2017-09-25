@@ -1,11 +1,34 @@
----
-title: "Questions to HW2"
-author: "Nathan Bendriem"
-date: "September 24, 2017"
-output: 
-  html_document: 
-    keep_md: yes
----
+# Questions to HW2
+Nathan Bendriem  
+September 24, 2017  
+
+
+```r
+library(gapminder)
+```
+
+```r
+library(tidyverse)
+```
+
+```
+## Loading tidyverse: ggplot2
+## Loading tidyverse: tibble
+## Loading tidyverse: tidyr
+## Loading tidyverse: readr
+## Loading tidyverse: purrr
+## Loading tidyverse: dplyr
+```
+
+```
+## Conflicts with tidy packages ----------------------------------------------
+```
+
+```
+## filter(): dplyr, stats
+## lag():    dplyr, stats
+```
+
 # Homework 2:
 
 Exploring the Gapminder dataset by using dplyr and ggplot2.  This page will contain the answers to the given questions as well as the codes and functions I used.
@@ -83,37 +106,54 @@ All of the graphs will be collated into a folder with the respective title of th
 
 
 ## Scatterplot
-```{r}
-ggplot(gapminder, aes(x=year, y=lifeExp)) + geom_point(size= 1, colour= "red") + ggtitle("Gapminder dataset- LifeExp vs Year")
 
+```r
+ggplot(gapminder, aes(x=year, y=lifeExp)) + geom_point(size= 1, colour= "red") + ggtitle("Gapminder dataset- LifeExp vs Year")
 ```
 
+![](Answers_to_HW02_files/figure-html/unnamed-chunk-3-1.png)<!-- -->
+
 ## Histogram
-```{r}
+
+```r
 ggplot(gapminder, aes(gapminder$lifeExp)) + geom_histogram(colour = "black", fill = "red", alpha= 0.33) + labs(x= "Life Expectancy", y= "Frequency") + ggtitle("Histogram of Life Expectancy")
 ```
 
+```
+## `stat_bin()` using `bins = 30`. Pick better value with `binwidth`.
+```
+
+![](Answers_to_HW02_files/figure-html/unnamed-chunk-4-1.png)<!-- -->
+
 # Use Filter, Select, and Piping
 
-```{r}
+
+```r
 ggplot(gapminder, aes(x= country, y= lifeExp)) + geom_boxplot(colour = "red",) + labs(x= "", y= "Life Expectancy") + ggtitle("Boxplot of Life Expectancy vs. Year")
 ```
+
+![](Answers_to_HW02_files/figure-html/unnamed-chunk-5-1.png)<!-- -->
 This gives us too many inputs on the x axis (country) so we will do some filtering and focus only on North African Countries.
 
-```{r}
+
+```r
 NorthAfrica <- filter(gapminder, country== "Algeria" | country=="Tunisia" | country=="Egypt" | country=="Morocco" | country=="Libya" | country=="Sudan")
 ```
 ggplot(NorthAfrica, aes(x= country, y= lifeExp)) + geom_boxplot(colour = "black", fill = "red", alpha= 0.33) + labs(x= "Country", y= "Life Expectancy") + ggtitle("Boxplot of Life Expectancy for North African Countries")
 
 One more with Piping, focusing on Oceania and the years 1960-1980
 
-```{r}
+
+```r
 Oceania<- gapminder %>% filter(continent== "Oceania") %>% filter(year <= 1980, year >= 1960)
 ```
 
-```{r}
+
+```r
 ggplot(Oceania, aes(x= country, y=lifeExp)) + geom_boxplot(colour = "black", fill = "blue", alpha =0.33) +labs(x= "Country", y="Life Expectancy") + ggtitle("Boxplot of Life Expectancy for Oceania")
 ```
+
+![](Answers_to_HW02_files/figure-html/unnamed-chunk-8-1.png)<!-- -->
 
 
 

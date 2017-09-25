@@ -66,8 +66,7 @@ head(gapminder$lifeExp)
 ```{r}
 tail(gapminder$lifeExp)
 ```
-tail(unique(gapminder$lifeExp))
-```{r}
+tail(unique(gapminder$lifeExp))```{r}
 plot(p1)+ coluour="red"
 ```
 p1 + geom(alpha=.66)
